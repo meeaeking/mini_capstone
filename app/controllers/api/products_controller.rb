@@ -1,6 +1,12 @@
 class Api::ProductsController < ApplicationController
-  def product_method
-    @product = Product.all
-    render 'burger.json.jb'
+  def index
+    @products = Product.all
+    render 'index.json.jb'
+  end
+
+  def show
+    the_id = params["id"]
+    @product = Product.find_by(id: the_id)
+    render 'show.json.jb'
   end
 end
