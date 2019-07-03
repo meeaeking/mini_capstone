@@ -12,9 +12,10 @@ class Api::ProductsController < ApplicationController
 
   def create
     @product = Product.new(
-      name: params[:input_name],
-      description: params[:input_description],
-      price: params[:input_price]
+      name: params[:name],
+      description: params[:description],
+      price: params[:price],
+      image_url: params[:image_url]
     )
     @product.save
     render 'show.json.jb'
@@ -33,5 +34,6 @@ class Api::ProductsController < ApplicationController
   def destroy
     @product = Product.find_by(id: params[:id])
     @product.destroy
+    render 'destroy.json.jb'
   end
 end
