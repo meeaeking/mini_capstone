@@ -15,7 +15,8 @@ class Api::ProductsController < ApplicationController
       name: params[:name],
       description: params[:description],
       price: params[:price],
-      image_url: params[:image_url]
+      image_url: params[:image_url],
+      inventory: params[:inventory]
     )
     @product.save
     render 'show.json.jb'
@@ -24,9 +25,10 @@ class Api::ProductsController < ApplicationController
   def update
     the_id = params["id"]
     @product = Product.find_by(id: the_id)
-    @product.name = params[:update_name]
-    @product.description = params[:update_description]
-    @product.price = params[:update_price]
+    @product.name = params[:name]
+    @product.description = params[:description]
+    @product.price = params[:price]
+    @product.inventory = params[:inventory]
 
     render 'show.json.jb'
   end
