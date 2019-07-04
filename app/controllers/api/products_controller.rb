@@ -18,14 +18,17 @@ class Api::ProductsController < ApplicationController
       image_url: params[:image_url],
       inventory: params[:inventory]
     )
-    @product.save
-    render 'show.json.jb'
+    if @product.save
+      render 'show.json.jb'
+    else 
+      render 'errors.json.jb'
+    end
   end
 
   def update
     the_id = params["id"]
     @product = Product.find_by(id: the_id)
-    @product.name = params[:name]
+    if @product.name = params[:name]
     @product.description = params[:description]
     @product.price = params[:price]
     @product.inventory = params[:inventory]
