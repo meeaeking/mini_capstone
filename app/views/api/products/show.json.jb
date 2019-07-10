@@ -3,10 +3,10 @@
   name: @product.name,
   description: @product.description,
   price: @product.price,
-  supplier_name: product.supplier.name,
-  is_discounted: product.is_discounted?,
-  tax: product.tax,
-  total: product.total
-  images: product.images
+  supplier_name: @product.supplier.name,
+  is_discounted: @product.is_discounted?,
+  tax: @product.tax,
+  total: @product.total
+  images: @product.images
 
 }
