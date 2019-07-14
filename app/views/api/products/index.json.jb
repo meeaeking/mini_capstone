@@ -4,7 +4,7 @@
   name: product.name,
   price: product.price,
   description: product.description,
-  supplier_name: product.supplier.name,
+  # supplier_name: product.supplier.name,
   is_discounted: product.is_discounted?,
   tax: product.tax,
   total: product.total
